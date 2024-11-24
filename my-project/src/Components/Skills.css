@@ -1,0 +1,16 @@
+.CircularProgressbar .CircularProgressbar-path{
+    stroke: rgb(216 45 37);
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    column-gap: 0;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+    flex-wrap: wrap;*/
+    /* padding: 0 250px;  */
+}

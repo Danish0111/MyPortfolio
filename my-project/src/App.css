@@ -1,0 +1,14 @@
+body{
+  background-color: black;
+  color: white;
+}
+
+nav li .active-link{
+  color: #d82d25;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+nav .social a{
+  color: #d82d25;
+}
