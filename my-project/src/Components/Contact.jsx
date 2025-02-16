@@ -16,8 +16,9 @@ const Contact = () => {
             message: data.message
         }
         try{
-            const response = await fetch("https://portfolio-api-neon-alpha.vercel.app", {
+            const response = await fetch("https://portfolio-api-dun-ten.vercel.app", {
                 method: "POST", 
+                mode: "no-cors", 
                 headers: {
                     "Content-Type": "application/json"
                 }, 
