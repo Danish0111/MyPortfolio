@@ -1,54 +1,32 @@
-.img {
-    width: 300px;
-    height: auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background: linear-gradient(to bottom, transparent, #d82d25);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: height 0.5s ease-out, opacity 0.5s ease-out;
-  }
 
   .project-title {
     font-size: 1.2em;
     font-weight: bold;
     margin: 5px 0;
   }
-
-  .img:hover .overlay {
-    height: 100%;
-    opacity: 1;
+  .code {
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+    position: relative; /* Ensures pseudo-elements are positioned relative to the button */
+    overflow: hidden; /* Ensures effects stay within the button bounds */
   }
-
-/* .img::before {
-    content: 'project';
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  
+  .code:hover {
+    background-color: #d82d25; /* Change background color on hover */
+    transform: translateY(-2px); /* Adds a slight upward movement */
+    box-shadow: 0 8px 15px rgba(28, 70, 112, 0.2); /* Attractive shadow effect */
+  }
+  .code::before {
+    content: '';
     position: absolute;
-    height: 0;
-    width: 100%;
-    bottom: 0;
-    transition:  0.5s ease-out;
-    background: linear-gradient(to bottom, transparent 0%, #d82d25 100%);
-    color: white; 
-    font-size: 16px; 
-    opacity: 0; 
-}
-
-.img:hover::before {
-    height: 160px; 
-    opacity: 1; 
-} */
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.301), transparent);
+    transform: skewX(-45deg);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .code:hover::before {
+    left: 100%;
+  }

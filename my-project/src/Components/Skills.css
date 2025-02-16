@@ -4,13 +4,12 @@
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
-    column-gap: 0;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20%;
-    flex-wrap: wrap;*/
-    /* padding: 0 250px;  */
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+    padding: 0 50px;
+    place-self: center;
+}
+
+.label {
+    display: none;
 }
