@@ -10,7 +10,7 @@ const port = 5000
 app.use(bodyParser.json());
 app.use(cors(
     {
-	origin: [""],
+	origin: ["https://my-portfolio-omega-ruddy-76.vercel.app"],
 	methods: ["POST", "GET"],
 	credentials: true
     }
