@@ -18,6 +18,7 @@ const Contact = () => {
         try{
             const response = await fetch("https://portfolio-api-dun-ten.vercel.app", {
                 method: "POST", 
+                mode: "no-cors", 
                 headers: {
                     "Content-Type": "application/json"
                 }, 
