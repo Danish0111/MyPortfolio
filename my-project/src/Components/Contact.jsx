@@ -16,9 +16,8 @@ const Contact = () => {
             message: data.message
         }
         try{
-            const response = await fetch("https://portfolio-api-dun-ten.vercel.app", {
+            const response = await fetch("http://localhost:5000", {
                 method: "POST", 
-                mode: "no-cors", 
                 headers: {
                     "Content-Type": "application/json"
                 }, 
@@ -42,7 +41,7 @@ const Contact = () => {
         <>
             {submited ? (
                 <div className="flex justify-center items-center my-40">
-                    <h1 className='text-5xl font-bold text-red-500'>Thanks for Submiting form</h1>
+                    <h1 className='text-5xl font-bold text-red-500 text-center'>Thanks for Submiting form</h1>
                 </div>
             ):
             <div className="contact w-[100%] h-[80vh] flex flex-col lg:flex-row-reverse justify-center lg:gap-8 items-center">

@@ -6,18 +6,18 @@ const cors = require('cors')
 
 const app = express()
 const port = 5000
+// app.use(cors())
 
-app.use(bodyParser.json());
-app.use(cors(
-    {
-	origin: ["*"],
-	methods: ["POST", "GET"],
-	credentials: true, 
-    allowedHeaders: ["Content-Type"]
-    }
-));
 
 dotenv.config();
+
+const corsOptions = {
+    origin: process.env.FRONTEND_URL, 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}
+app.use(cors(corsOptions))
+app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -61,6 +61,9 @@ app.post("/", (req, res) => { // Correctly define the route
     });
 });
 
+app.get("/", (req, res) => {
+    res.send("Hello World!")
+})
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
