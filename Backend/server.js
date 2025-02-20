@@ -48,10 +48,11 @@ app.post("/", (req, res) => { // Correctly define the route
 
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
-            console.log(error);
-        }
-        else{
-            console.log("email sent successfully");
+            console.error("Email Error:", error);
+            return res.status(500).json({ success: false, message: "Failed to send email", error });
+        } else {
+            console.log("Email sent successfully:", info.response);
+            return res.status(200).json({ success: true, message: "Email sent successfully!" });
         }
     })
     res.status(200).json({
