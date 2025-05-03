@@ -1,32 +1,49 @@
+  .projects .project .code {
+    box-shadow: 0 0 5px var(--main-color),
+      0 0 8px var(--main-color);
+      transition: all 0.3s ease;
+  }
+  .projects .project .demo {
+      transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+  }
 
-  .project-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 5px 0;
+  .projects .project {
+    transition: all ease-out 0.3s;
+    /* background: linear-gradient(135deg, rgba(250, 250, 250, 0.178), rgba(225, 225, 225, 0.137));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+    background-color: var(--main-color);
+    color: black;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 20px;
+    max-height: 500px;
   }
-  .code {
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
-    position: relative; /* Ensures pseudo-elements are positioned relative to the button */
-    overflow: hidden; /* Ensures effects stay within the button bounds */
+
+  .projects .project:hover{
+    border-radius: 0;
   }
-  
-  .code:hover {
-    background-color: #d82d25; /* Change background color on hover */
-    transform: translateY(-2px); /* Adds a slight upward movement */
-    box-shadow: 0 8px 15px rgba(28, 70, 112, 0.2); /* Attractive shadow effect */
-  }
-  .code::before {
+
+  /* .projects .project:hover::before {
+    opacity: 1;
+  } */
+/* 
+  .projects .project::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.301), transparent);
-    transform: skewX(-45deg);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .code:hover::before {
-    left: 100%;
+    transform: translate(-20px, -20px);
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--main-color) 0%, transparent 60%);
+    background-color: white;
+    width: 300px;
+    height: 400px;
+    z-index: -100;
+    border-radius: 20px;
+    opacity: 0;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  } */
+
+  @media screen and (max-width: 1024px) {
+    .projects .project::before{
+      display: none;
+    }
   }

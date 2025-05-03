@@ -1,5 +1,4 @@
-
-.mobile_navigation{
+.mobile_navigation {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -7,15 +6,20 @@
     height: 70px;
     display: flex;
     justify-content: center;
-    background-color: white;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* background-color: rgba(255, 251, 251, 0.226); */
+    background: linear-gradient(135deg, rgba(250, 250, 250, 0.178), rgba(225, 225, 225, 0.137));
     color: black;
     border-radius: 50px;
     z-index: 1000;
     padding: 10px 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    /* Optional shadow */
 
 }
-.mobile_navigation ul li{
+
+.mobile_navigation ul li {
     position: relative;
     display: flex;
     justify-content: center;
@@ -24,37 +28,44 @@
     height: 70px;
     z-index: 1;
 }
-.mobile_navigation ul li .icon{
+
+.mobile_navigation ul li .icon {
     position: relative;
     line-height: 75px;
     transition: 0.5s;
 }
-.mobile_navigation ul li .active-link .icon{
+
+.mobile_navigation ul li .active-link .icon {
     transform: translateY(-35px);
     color: white;
 }
-.mobile_navigation ul li .text{
+
+.mobile_navigation ul li .text {
     position: absolute;
     letter-spacing: 0.05em;
     opacity: 0;
     transition: 0.5s;
     transform: translateY(20px);
+    color: white;
 }
-.mobile_navigation ul li .active-link .text{
+
+.mobile_navigation ul li .active-link .text {
     opacity: 1;
 }
-.mobile_navigation ul .indicator{
+
+.mobile_navigation ul .indicator {
     position: absolute;
     top: -50%;
     left: 0;
     width: 70px;
     height: 70px;
-    background-color: #d82d25;
+    background-color: var(--main-color);
     border-radius: 50px;
     border: 6px solid black;
     transition: 0.5s;
 }
-.indicator::before{
+
+.indicator::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -65,7 +76,8 @@
     border-top-right-radius: 20px;
     /* box-shadow: 0 -10px 0 0 black; */
 }
-.indicator::after{
+
+.indicator::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -76,6 +88,7 @@
     border-top-left-radius: 20px;
     /* box-shadow: 0 -10px 0 0 black; */
 }
+
 /* 
 .mobile_navigation ul:has(li:nth-child(1) .active-link) .indicator {
     transform: translateX(calc(70px * 0)) 

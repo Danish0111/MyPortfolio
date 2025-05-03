@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { database } from '../firebase';
 import { ref, onValue } from "firebase/database";
+import './Education.css'
+import {motion} from 'motion/react'
 
 const Education = () => {
     const db = database;
@@ -24,44 +26,47 @@ const Education = () => {
 
     return (
         <>
-            <div className="education_container min-h-screen md:min-h-[100%] mb-4">
+            <div className="education_container min-h-screen md:min-h-[100%] mb-10 lg:mb-4 lg:my-20 flex flex-col justify-center items-center">
                 <div className="educations flex flex-col justify-center items-center py-10">
-                    <h1 className='text-2xl font-bold'>Education</h1>
-                    <div className="line w-[130px] h-[1px] bg-white"></div>
+                    <motion.h1 initial={{opacity: 0, y: 50}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true }} transition={{duration: 1}} className='text-5xl font-bold uppercase'>Education</motion.h1>
                 </div>
 
                 {/* Skeleton Loader */}
                 {loading
-                    ? [...Array(educations.length || 3)].map((_, index) => (
-                        <div key={index} className="flex justify-center pb-5 animate-pulse mx-3 sm:mx-10 lg:mx-0">
-                            <div className="sidebar flex flex-col justify-center items-center px-2">
-                                <div className="dot w-[15px] h-[15px] rounded-full bg-gray-300"></div>
-                                <div className="line w-[3px] h-[65px] bg-gray-300 rounded-full"></div>
+                    ? (<div className="timeline-items relative w-[80%] max-w-5xl mx-auto animate-pulse">
+                        <div className="timeline-line-skeleton bg-gray-600" />
+                        {[...Array(educations.length || 3)].map((_, index) => (
+                            <div key={index} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+                                <div className="content-skeleton text-white p-5 rounded-3xl bg-gray-600">
+                                    <h2 className="text-lg font-bold "></h2>
+                                    <p className="text-sm"></p>
+                                </div>
+                                <span className="dot-skeleton bg-gray-600" />
+                                <span className='duration-skeleton text-white font-bold bg-gray-600 w-[15%] h-[30px]'></span>
                             </div>
-                            <div className="education w-[100%] lg:w-[50%] bg-[#3d3d3d] flex flex-col px-2 lg:px-5 py-2 rounded-md text-white">
-                                <div className="w-16 h-4 bg-gray-300 rounded mb-2"></div>
-                                <div className="w-28 h-6 bg-gray-400 rounded mb-2"></div>
-                                <div className="w-36 h-4 bg-gray-300 rounded"></div>
-                            </div>
+                        ))}
+                    </div>
+                    )
+                    : (
+                        <div className="timeline-items relative w-[80%] max-w-5xl mx-auto">
+                            <div className="timeline-line" />
+                            {educations.map((education, index) => (
+                                <div  key={education.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+                                    <div  className="content text-white p-5 rounded-3xl border-2 border-[var(--main-color)]">
+                                        <h2 className="text-lg font-bold">{education.name}</h2>
+                                        <p className="text-sm">{education.schoolName}</p>
+                                    </div>
+                                    <span className="dot" />
+                                    <span className='duration text-white font-bold'>{education.year}</span>
+                                </div>
+                            ))}
                         </div>
-                    ))
-                    : educations.map(education => (
-                        <div key={education.id} className="flex justify-center pb-5 mx-3 sm:mx-10 lg:mx-0">
-                            <div className="sidebar flex flex-col justify-center items-center sm:px-1 lg:px-2">
-                                <div className="dot w-[15px] h-[15px] rounded-full bg-[#d82d25]"></div>
-                                <div className="line w-[3px] h-[80px] sm:h-[65px] bg-[#d82d25] rounded-full"></div>
-                            </div>
-                            <div className="education w-[100%] lg:w-[50%] bg-[#3d3d3d] flex flex-col px-2 lg:px-5 py-2 rounded-md text-white">
-                                <h2 className='text-red-600 font-bold'>{education.year}</h2>
-                                <h1 className='text-xl text-blue-400 font-bold pb-2'>{education.name}</h1>
-                                <p>{education.schoolName}</p>
-                            </div>
-                        </div>
-                    ))
+                    )
                 }
             </div>
         </>
     );
+
 }
 
 export default Education;

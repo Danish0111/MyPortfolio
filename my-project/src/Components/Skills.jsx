@@ -4,11 +4,14 @@ import { database } from '../firebase';
 import { ref, onValue } from "firebase/database";
 import ProgressBar from "@ramonak/react-progress-bar";
 import ProgressProvider from './ProgressProvider';
+import {motion, useScroll} from 'motion/react'
 
 const Skills = () => {
   const db = database;
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const skillsRef = ref(db, "Skills");
@@ -28,13 +31,13 @@ const Skills = () => {
 
   return (
     <>
-      <div className="skills_container min-h-screen mb-5 lg:mb-0 lg:min-h-[100%]">
-        <div className="myskills flex flex-col justify-center items-center py-10">
-          <h1 className='text-2xl font-bold'>My Skills</h1>
-          <div className="line w-[110px] h-[1px] bg-white"></div>
+      <div className="skills_container h-full mb-24 lg:mb-0 lg:min-h-[100%] flex flex-col justify-center">
+        <div className="myskills flex flex-col justify-center items-center mt-10 my-8 sm:py-10 sm:mt-0">
+          <motion.h1 initial={{opacity: 0, y: 50}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true }} transition={{duration: 1}} className='text-5xl font-bold uppercase'>My Skills</motion.h1>
+          {/* <div className="line w-[110px] h-[1px] bg-white"></div> */}
         </div>
 
-        <div className='grid lg:grid-cols-2 gap-8 gap-x-0 py-2 mx-0 sm:mx-10 lg:mx-14'>
+        <div className='grid lg:grid-cols-2 gap-12 gap-x-0 py-2 mx-0 sm:mx-10 lg:mx-14'>
           {loading
             ? [...Array(skills.length || 7)].map((_, index) => (
               <div key={index} className="skill flex flex-col gap-2 justify-center items-center animate-pulse">
@@ -51,9 +54,9 @@ const Skills = () => {
               </div>
             ))
             : skills.map(skill => (
-              <div key={skill.id} className="skill flex justify-center items-center">
+              <motion.div initial={{y: 100, opacity: 0}} whileInView={{y: 0, opacity: 1}} viewport={{once: true }} transition={{duration: 1}} key={skill.id} className="skill flex justify-center items-center">
                 <div className='w-[90%] lg:w-[80%] flex justify-center gap-3'>
-                  <img className='w-10 rounded-full' src={skill.imageURL} alt={skill.name} />
+                  <span className=''><img className='w-14 hover:scale-110 transition-all duration-[0.3s]' src={skill.imageURL} alt={skill.name} /></span>
                   <ProgressProvider valueStart={0} valueEnd={skill.percentage}>
                     {(value) => (
                       <div className="flex flex-col w-[100%]">
@@ -61,12 +64,12 @@ const Skills = () => {
                           <span>{skill.name}</span>
                           <span>{skill.percentage}%</span>
                         </div>
-                        <ProgressBar className='w-[100%] text-sm custom-progress' labelClassName="label" completed={value} height="10px" bgColor='#d82d25' baseBgColor='#ffffff' />
+                        <ProgressBar className='w-[100%] text-sm custom-progress' labelClassName="label" completed={value} height="10px" bgColor='var(--main-color)' baseBgColor='#646464' />
                       </div>
                     )}
                   </ProgressProvider>
                 </div>
-              </div>
+              </motion.div>
             ))
           }
         </div>

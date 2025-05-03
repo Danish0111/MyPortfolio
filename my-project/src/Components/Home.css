@@ -2,3 +2,78 @@
     border-radius: 300px;
     filter: drop-shadow(20);
 }
+
+.right h2 span{
+    position: relative;
+}
+
+.right h2 span::before{
+    content: 'Web Developer';
+    animation: words 20s infinite;
+}
+
+.right h2 span::after{
+    content: '';
+    position: absolute;
+    background-color: black;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--main-color);
+    right: -8px;
+    animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    50%{
+        border-color: transparent;
+    }
+}
+
+@keyframes words {
+    0%,
+    20%{
+        content: 'UI/ UX Designer';
+    }
+    21%,
+    40%{
+        content: 'Web Developer';
+    }
+    41%,
+    60%{
+        content: 'UI/ UX Designer';
+    }
+    61%,
+    80%{
+        content: 'Web Developer';
+    }
+    81%,
+    100%{
+        content: 'UI/ UX Designer';
+    }
+}
+
+@keyframes typing {
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95%{
+        width: 0;
+    }
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85%{
+        width: calc(100% + 8px);
+    }
+}

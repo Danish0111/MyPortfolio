@@ -3,6 +3,7 @@ import './Projects.css';
 import { useEffect, useState } from 'react';
 import { database } from '../firebase';
 import { getDatabase, ref, onValue, get, child } from "firebase/database";
+import {motion, scale, useScroll} from 'motion/react'
 
 const Projects = () => {
   const db = database;
@@ -23,46 +24,51 @@ const Projects = () => {
     })
     return () => unsubscribe();
   }, [])
+
+  const handleMouseMove = (e, index) => {
+    const projectCard = document.getElementById(`project-${index}`);
+    if (projectCard) {
+      const rect = projectCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      projectCard.style.setProperty('--mouse-x', `${x}px`);
+      projectCard.style.setProperty('--mouse-y', `${y}px`);
+    }
+  };
+
   return (
-    <>
-      <div className="projects_container min-h-screen lg:min-h-[100%] mb-20 lg:mb-0">
-        <div className="myProjects flex flex-col justify-center items-center py-10">
-          <h1 className='text-2xl font-bold'>Projects</h1>
-          <div className="line w-[110px] h-[1px] bg-white"></div>
+    <div>
+      <div className="projects_container min-h-screen lg:min-h-[100%] mb-20 lg:mb-0 lg:my-28 flex flex-col justify-center items-center">
+        <div className="myProjects flex flex-col justify-center items-center py-8">
+          <motion.h1 initial={{opacity: 0, y: 50}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true }} transition={{duration: 1}} className='text-5xl font-bold uppercase'>Projects</motion.h1>
         </div>
-        <div className="projects w-[90%] lg:w-[80%] m-5 grid lg:grid-cols-2 place-self-center gap-20">
+        <div className="projects w-[90%] lg:w-[80%] m-5 grid md:grid-cols-2 gap-y-8 lg:grid-cols-3 place-items-center">
           {loading
-            ? [...Array(projects.length || 4)].map((_, index) => (
-              <div key={index} className="project w-[100%] animate-pulse">
-                <div className="img pb-2 bg-gray-300 h-60 md:h-72 lg:h-60 rounded-lg"></div>
-                <div className="project-title bg-gray-300 h-6 w-3/4 my-2 rounded"></div>
-                <div className="description bg-gray-300 h-4 w-full my-2 rounded"></div>
-                <div className="links flex justify-between py-4">
-                  <span className="bg-gray-300 h-10 w-24 rounded"></span>
-                  <span className="bg-gray-300 h-10 w-16 rounded"></span>
-                </div>
+            ? [...Array(projects.length || 3)].map((_, index) => (
+              <div key={index} className="project-skeleton flex justify-center pt-8 rounded-xl w-[90%] bg-gray-400 h-[400px] animate-pulse">
+
               </div>
             ))
-            : projects.map((project) => (
-              <div key={project.id} className="project w-[100%]">
+            : projects.map((project, index) => (
+              <motion.div initial={{opacity: 0, y: index*30+100}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true }} transition={{duration: 1}} key={project.id} id={`project-${index}`} className="project w-[90%]  border-white p-5"  >
                 <div className="img pb-2">
-                  <img className='' src={project.imageURL} alt="project" />
+                  <img className='rounded-xl' src={project.imageURL} alt="project" />
                 </div>
-                <div className="project-title text-xl text-[#d82d25]">{project.title}</div>
-                <div className="description text-justify lg:text-left">{project.description}</div>
-                <div className="links flex justify-between py-4">
-                  <span className="code bg-[#d82d25] text-white font-bold p-2 rounded-lg hover:cursor-pointer">
-                    <a href={project.code}>Source Code</a>
-                  </span>
-                  <span className="border-2 border-[#d82d25] text-center p-2 rounded-lg font-bold hover:cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gradient-to-r from-[#d82d25] to-[#ff6347] hover:text-white hover:shadow-[0_4px_15px_rgba(216,45,37,0.5)]">
-                    Demo
-                  </span>
+                <div className="project-title text-lg font-bold uppercase text-center text-black  pointer-events-none mb-2">{project.title}</div>
+                <div className="description text-center text-sm mb-2 pointer-events-none font-semibold">{project.description}</div>
+                <div className="links flex justify-between">
+                  <motion.span whileTap={{scale: 0.9}} className="code bg-white text-black font-bold p-2 rounded-lg hover:cursor-pointer hover:bg-black border-2 border-black hover:text-white">
+                    <a target="_blank" href={project.code}>Source Code</a>
+                  </motion.span>
+                  <motion.span whileTap={{scale: 0.9}} className="demo border-2 border-black text-center p-2 rounded-lg font-bold hover:cursor-pointer hover:border-white hover:bg-white hover:text-black">
+                  <a target="_blank" href={project.demo}>Demo</a>
+                  </motion.span>
                 </div>
-              </div>
+              </motion.div>
             ))}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

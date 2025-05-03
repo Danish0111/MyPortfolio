@@ -1,5 +1,5 @@
 .CircularProgressbar .CircularProgressbar-path{
-    stroke: rgb(216 45 37);
+    stroke: var(--main-color);
 }
 
 .container{
@@ -12,4 +12,5 @@
 
 .label {
     display: none;
+    background-color: #646464;
 }

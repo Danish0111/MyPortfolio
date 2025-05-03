@@ -1,3 +1,7 @@
+:root {
+  --main-color: #03ffec;
+}
+
 body{
   min-height: 100vh;
   background-color: black;
@@ -5,11 +9,180 @@ body{
 }
 
 nav li .active-link{
-  color: #d82d25;
+  color: var(--main-color);
   text-decoration: underline;
   text-underline-offset: 5px;
 }
 
 nav .social a{
-  color: #d82d25;
+  color: var(--main-color);
+}
+
+.last-name{
+  text-shadow: 
+    0 0 8px var(--main-color), 
+    0 0 10px var(--main-color);
+    /* 0 0 15px var(--main-color); */
+
+  /* -webkit-text-stroke: 1px #ea4037; */
+}
+
+.social span:hover{
+  /* background: var(--main-color); */
+  box-shadow: 0 0 5px var(--main-color),
+              0 0 10px var(--main-color), 
+              0 0 15px var(--main-color);
+}
+
+.hire_btn button{
+  transition: all ease-in-out 0.3s;
+  box-shadow: 0 0 10px var(--main-color), 
+              0 0 15px var(--main-color);
+}
+
+.hire_btn button:hover{
+  transform: scale(101%);
+  box-shadow: 0 0 15px var(--main-color), 
+              0 0 20px var(--main-color);
+}
+
+nav li .link{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.link::before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--main-color);
+  bottom: 0;
+  /* opacity: 0; */
+  transition: all 0.3s ease-in-out;
+}
+
+.link:hover::before{
+  width: 100%;
+  /* opacity: 1; */
+}
+
+.contact img{
+  animation: move 2s ease-in-out infinite alternate;
+}
+
+@keyframes move {
+  0%{
+    translate: 5% 10%;
+  }
+
+  100%{
+    translate: -5% -10%;
+  }
+}
+
+.submit{
+  transition: all 0.3s ease-out;
+  box-shadow: 0 0 5px var(--main-color),
+              0 0 10px var(--main-color);
+}
+
+.submit:hover{
+  box-shadow: 0 0 10px var(--main-color),
+              0 0 15px var(--main-color);
+}
+
+footer{
+  background-color: rgba(94, 92, 92, 0.285);
+}
+
+::-webkit-scrollbar{
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+}
+
+
+::-webkit-scrollbar-track{
+  background-color: black;
+}
+
+.message{
+  animation: shake 0.3s backwards;
+}
+
+.message.shake-out {
+  animation: shake-out 0.3s forwards;
+}
+
+.message .line{
+  animation: slide 5.2s forwards ease-out;
+  transform-origin: left;
+}
+
+@keyframes slide {
+  from{
+    transform: translateX(0%);
+  }
+  to{
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shake {
+  0%{
+    transform: translateX(100%);
+  }
+  60%{
+    transform: translateX(0%);
+  }
+  70%{
+    transform: translateX(8%);
+  }
+  80%{
+    transform: translateX(5%);
+  }
+  90%{
+    transform: translateX(2%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+
+@keyframes shake-out {
+  0% {
+    transform: translateX(0%);
+  }
+  60% {
+    transform: translateX(0%);
+  }
+  70% {
+    transform: translateX(2%);
+  }
+  80% {
+    transform: translateX(5%);
+  }
+  90% {
+    transform: translateX(8%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.profile-img{
+  box-shadow: 0 0 5px var(--main-color),
+              0 0 10px var(--main-color),
+              0 0 15px var(--main-color);
+  transition: all 0.3s ease-out;
+}
+.profile-img:hover{
+  box-shadow: 0 0 25px var(--main-color),
+              0 0 50px var(--main-color),
+              0 0 80px var(--main-color);
 }
