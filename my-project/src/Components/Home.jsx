@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Link } from "react-scroll";
 import { motion, useScroll } from 'motion/react';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   const [showBadge, setShowBadge] = useState(false);
@@ -31,11 +32,16 @@ const Home = () => {
           </div>
           <div className='flex items-center gap-8'>
             <motion.div initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="hire_btn">
-              <button className='w-full bg-[var(--main-color)] text-black px-5 py-2 rounded-full transition-all'>
-                <Link to="contact" smooth={true} duration={500} spy={true} offset={-30} className='hover:cursor-pointer font-semibold '>
+              <Link  to="contact" smooth={true} duration={500} spy={true} offset={-30}  className='hire_link hidden md:block w-full hover:cursor-pointer bg-[var(--main-color)] text-black px-5 py-2 rounded-full transition-all'>
+                <button className='font-semibold '>
                   Hire Me
-                </Link>
-              </button>
+                </button>
+              </Link>
+              <NavLink  to="/contact" smooth={true} duration={500} spy={true} offset={-30}  className='hire_link block md:hidden w-full hover:cursor-pointer bg-[var(--main-color)] text-black px-5 py-2 rounded-full transition-all'>
+                <button className='font-semibold '>
+                  Hire Me
+                </button>
+              </NavLink>
             </motion.div>
             <motion.div initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="download_btn relative">
               <a onMouseEnter={()=> setShowBadge(true)} onMouseLeave={()=> setShowBadge(false)} href="/DanishResume.pdf" download>

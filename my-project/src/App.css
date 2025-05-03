@@ -34,13 +34,13 @@ nav .social a{
               0 0 15px var(--main-color);
 }
 
-.hire_btn button{
+.hire_btn .hire_link{
   transition: all ease-in-out 0.3s;
   box-shadow: 0 0 10px var(--main-color), 
               0 0 15px var(--main-color);
 }
 
-.hire_btn button:hover{
+.hire_btn .hire_link:hover{
   transform: scale(101%);
   box-shadow: 0 0 15px var(--main-color), 
               0 0 20px var(--main-color);
