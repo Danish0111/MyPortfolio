@@ -57,7 +57,7 @@ const Projects = () => {
                 <div className="project-title text-lg font-bold uppercase text-center text-black  pointer-events-none mb-2">{project.title}</div>
                 <div className="description text-center text-sm mb-2 pointer-events-none font-semibold">{project.description}</div>
                 <div className="links flex justify-between">
-                  <motion.span whileTap={{scale: 0.9}} className="code bg-white text-black font-bold p-2 rounded-lg hover:cursor-pointer hover:bg-black border-2 border-black hover:text-white">
+                  <motion.span whileTap={{scale: 0.9}} className="code bg-black text-white font-bold p-2 rounded-lg hover:cursor-pointer hover:bg-white border-2 border-black hover:border-white hover:text-black">
                     <a target="_blank" href={project.code}>Source Code</a>
                   </motion.span>
                   <motion.span whileTap={{scale: 0.9}} className="demo border-2 border-black text-center p-2 rounded-lg font-bold hover:cursor-pointer hover:border-white hover:bg-white hover:text-black">
