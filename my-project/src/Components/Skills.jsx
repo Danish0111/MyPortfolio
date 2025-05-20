@@ -33,11 +33,11 @@ const Skills = () => {
     <>
       <div className="skills_container h-full mb-24 lg:mb-0 lg:min-h-[100%] flex flex-col justify-center">
         <div className="myskills flex flex-col justify-center items-center mt-10 my-8 sm:py-10 sm:mt-0">
-          <motion.h1 initial={{opacity: 0, y: 50}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true }} transition={{duration: 1}} className='text-5xl font-bold uppercase'>My Skills</motion.h1>
+          <motion.h1 initial={{opacity: 0, scale: 0.5, y: -100}} whileInView={{ opacity: 1, scale: 1, y: 0}}  transition={{duration: 1}} className='text-5xl font-bold uppercase'>My Skills</motion.h1>
           {/* <div className="line w-[110px] h-[1px] bg-white"></div> */}
         </div>
 
-        <div className='grid lg:grid-cols-2 gap-12 gap-x-0 py-2 mx-0 sm:mx-10 lg:mx-14'>
+        <motion.div initial={{scale: 0.5, y: -100, opacity: 0}} whileInView={{scale: 1, opacity: 1, y: 0}} transition={{duration: 1}} className='grid lg:grid-cols-2 gap-12 gap-x-0 py-2 mx-0 sm:mx-10 lg:mx-14'>
           {loading
             ? [...Array(skills.length || 7)].map((_, index) => (
               <div key={index} className="skill flex flex-col gap-2 justify-center items-center animate-pulse">
@@ -54,7 +54,7 @@ const Skills = () => {
               </div>
             ))
             : skills.map(skill => (
-              <motion.div initial={{y: 100, opacity: 0}} whileInView={{y: 0, opacity: 1}} viewport={{once: true }} transition={{duration: 1}} key={skill.id} className="skill flex justify-center items-center">
+              <div key={skill.id} className="skill flex justify-center items-center">
                 <div className='w-[90%] lg:w-[80%] flex justify-center gap-3'>
                   <span className=''><img className='w-14 hover:scale-110 transition-all duration-[0.3s]' src={skill.imageURL} alt={skill.name} /></span>
                   <ProgressProvider valueStart={0} valueEnd={skill.percentage}>
@@ -69,10 +69,10 @@ const Skills = () => {
                     )}
                   </ProgressProvider>
                 </div>
-              </motion.div>
+              </div>
             ))
           }
-        </div>
+        </motion.div>
       </div>
     </>
   );

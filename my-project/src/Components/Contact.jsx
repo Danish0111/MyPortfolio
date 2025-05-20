@@ -72,8 +72,8 @@ const Contact = () => {
                 </div>
             )}
             <div className='flex flex-col justify-center items-center h-[100%] mb-8 lg:my-10'>
-                <motion.h1 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className='text-4xl md:text-5xl font-bold flex lg:block gap-2 uppercase my-4 md:my-8'><span>Contact</span> <span className='text-[var(--main-color)]'>me</span></motion.h1>
-                <div className="contact w-[90%] px-5 lg:px-0 lg:w-[70%] bg-gray-800 rounded-xl  lg:gap-8">
+                <motion.h1 initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className='text-4xl md:text-5xl font-bold flex lg:block gap-2 uppercase my-4 md:my-8'><span>Contact</span> <span className='text-[var(--main-color)]'>me</span></motion.h1>
+                <motion.div initial={{ opacity: 0, y: 100, scale: 0.8 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1 }} className="contact w-[90%] px-5 lg:px-0 lg:w-[70%] bg-gray-800 rounded-xl  lg:gap-8">
 
                     <div className="form w-[100%] lg:w-[100%] lg:py-4 rounded-xl text-white font-semibold">
                         <form onSubmit={handleSubmit(onSubmit)} className=''>
@@ -180,18 +180,8 @@ const Contact = () => {
 
                             </div>
                         </form>
-                        {/* <div className="contact_info flex lg:hidden flex-col gap-2 py-5">
-                                <div className="email flex items-center gap-2">
-                                    <FontAwesomeIcon icon={faEnvelope} color='var(--main-color)' />
-                                    <span>danish150106@gmail.com</span>
-                                </div>
-                                <div className="phone flex items-center gap-2">
-                                    <FontAwesomeIcon icon={faPhone} color='var(--main-color)' />
-                                    <span>+91 8527801978</span>
-                                </div>
-                            </div> */}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </>
     )

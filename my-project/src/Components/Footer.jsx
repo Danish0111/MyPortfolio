@@ -4,10 +4,11 @@ import { Link } from "react-scroll";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import './Navbar.css';
+import {motion} from 'motion/react'
 
 const Footer = () => {
     return (
-        <footer className='py-5 h-[100%] relative flex flex-col gap-5 md:gap-0 md:block px-5 md:px-0'>
+        <motion.footer initial={{y: 100}} whileInView={{y: 0}} transition={{duration: 1}} className='py-5 h-[100%] relative flex flex-col gap-5 md:gap-0 md:block px-5 md:px-0'>
             <div className="social w-full md:w-[5%] h-10 flex flex-row md:flex-col gap-2 md:px-4">
                 <a target="_blank" href='https://www.linkedin.com/in/md-danish-63312b309/'><span className='p-4 w-10 h-10 border-2 flex justify-center items-center border-[var(--main-color)] rounded-full text-[var(--main-color)] hover:text-white hover:translate-y-[-5px] hover:scale-110 hover:bg-[var(--main-color)] transition-all'><FontAwesomeIcon color='' size='lg' icon={faLinkedin} /></span></a>
                 <a target="_blank" href='https://github.com/Danish0111'><span className='p-4 w-10 h-10 border-2 flex justify-center items-center border-[var(--main-color)] rounded-full text-[var(--main-color)] hover:text-white hover:translate-y-[-5px] hover:scale-110 hover:bg-[var(--main-color)] transition-all'><FontAwesomeIcon color='' size='lg' icon={faGithub} /></span></a>
@@ -36,7 +37,7 @@ const Footer = () => {
             <div className="copyright md:p-2 mb-20 md:mb-0 flex justify-start md:justify-center items-center md:mt-4 text-sm font-medium text-gray-400">
                 <span>&copy; <span>Md Danish</span> <span>|</span> <span>All Rights Reserved</span></span>
             </div>
-        </footer>
+        </motion.footer>
     )
 }
 

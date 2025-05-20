@@ -28,7 +28,7 @@ const Education = () => {
         <>
             <div className="education_container min-h-screen md:min-h-[100%] mb-10 lg:mb-4 lg:my-20 flex flex-col justify-center items-center">
                 <div className="educations flex flex-col justify-center items-center py-10">
-                    <motion.h1 initial={{opacity: 0, y: 50}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true }} transition={{duration: 1}} className='text-5xl font-bold uppercase'>Education</motion.h1>
+                    <motion.h1 initial={{opacity: 0, scale: 0.5, y: -100}} whileInView={{ opacity: 1, scale: 1, y: 0}} transition={{duration: 1.5}} className='text-5xl font-bold uppercase'>Education</motion.h1>
                 </div>
 
                 {/* Skeleton Loader */}
@@ -42,7 +42,7 @@ const Education = () => {
                                     <p className="text-sm"></p>
                                 </div>
                                 <span className="dot-skeleton bg-gray-600" />
-                                <span className='duration-skeleton text-white font-bold bg-gray-600 w-[15%] h-[30px]'></span>
+                                <span className='duration-skeleton text-white font-bold bg-gray-600 w-[15%] h-[30px] rounded-xl'></span>
                             </div>
                         ))}
                     </div>
@@ -51,14 +51,14 @@ const Education = () => {
                         <div className="timeline-items relative w-[80%] max-w-5xl mx-auto">
                             <div className="timeline-line" />
                             {educations.map((education, index) => (
-                                <div  key={education.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-                                    <div  className="content text-white p-5 rounded-3xl border-2 border-[var(--main-color)]">
+                                <motion.div initial={{opacity: 0, scale: 0.8, y: 100}} whileInView={{ opacity: 1, scale: 1, y: 0}}  transition={{duration: 1}}  key={education.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+                                    <div className="content text-white p-5 rounded-3xl border-2 border-[var(--main-color)]">
                                         <h2 className="text-lg font-bold">{education.name}</h2>
                                         <p className="text-sm">{education.schoolName}</p>
                                     </div>
                                     <span className="dot" />
                                     <span className='duration text-white font-bold'>{education.year}</span>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     )

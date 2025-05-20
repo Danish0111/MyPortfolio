@@ -40,7 +40,7 @@ const Projects = () => {
     <div>
       <div className="projects_container min-h-screen lg:min-h-[100%] mb-20 lg:mb-0 lg:my-28 flex flex-col justify-center items-center">
         <div className="myProjects flex flex-col justify-center items-center py-8">
-          <motion.h1 initial={{opacity: 0, y: 50}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true }} transition={{duration: 1}} className='text-5xl font-bold uppercase'>Projects</motion.h1>
+          <motion.h1 initial={{opacity: 0, y: -50, scale: 0.5}} whileInView={{ opacity: 1, y: 0, scale: 1}}  transition={{duration: 1}} className='text-5xl font-bold uppercase'>Projects</motion.h1>
         </div>
         <div className="projects w-[90%] lg:w-[80%] m-5 grid md:grid-cols-2 gap-y-8 lg:grid-cols-3 place-items-center">
           {loading
@@ -50,9 +50,9 @@ const Projects = () => {
               </div>
             ))
             : projects.map((project, index) => (
-              <motion.div initial={{opacity: 0, y: index*30+100}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true }} transition={{duration: 1}} key={project.id} id={`project-${index}`} className="project w-[90%]  border-white p-5"  >
+              <motion.div initial={{opacity: 0, y: index*50+100}} whileInView={{ opacity: 1, y: 0}} transition={{duration: 1}} key={project.id} id={`project-${index}`} className="project w-[90%]  border-white p-5"  >
                 <div className="img pb-2">
-                  <img className='rounded-xl' src={project.imageURL} alt="project" />
+                  <img className='rounded-xl hover:scale-105 transition-all duration-[0.5s]' src={project.imageURL} alt="project" />
                 </div>
                 <div className="project-title text-lg font-bold uppercase text-center text-black  pointer-events-none mb-2">{project.title}</div>
                 <div className="description text-center text-sm mb-2 pointer-events-none font-semibold">{project.description}</div>
