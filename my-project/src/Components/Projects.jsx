@@ -40,7 +40,7 @@ const Projects = () => {
     <div>
       <div className="projects_container min-h-screen lg:min-h-[100%] mb-20 lg:mb-0 lg:my-28 flex flex-col justify-center items-center">
         <div className="myProjects flex flex-col justify-center items-center py-8">
-          <motion.h1 initial={{opacity: 0, y: -50, scale: 0.5}} whileInView={{ opacity: 1, y: 0, scale: 1}}  transition={{duration: 1}} className='text-5xl font-bold uppercase'>Projects</motion.h1>
+          <motion.h1 initial={{opacity: 0, y: -50, scale: 0.5}} whileInView={{ opacity: 1, y: 0, scale: 1}} viewport={{once: true}} transition={{duration: 1}} className='text-5xl font-bold uppercase'>Projects</motion.h1>
         </div>
         <div className="projects w-[90%] lg:w-[80%] m-5 grid md:grid-cols-2 gap-y-8 lg:grid-cols-3 place-items-center">
           {loading

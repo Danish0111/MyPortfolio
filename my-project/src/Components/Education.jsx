@@ -28,7 +28,7 @@ const Education = () => {
         <>
             <div className="education_container min-h-screen md:min-h-[100%] mb-10 lg:mb-4 lg:my-20 flex flex-col justify-center items-center">
                 <div className="educations flex flex-col justify-center items-center py-10">
-                    <motion.h1 initial={{opacity: 0, scale: 0.5, y: -100}} whileInView={{ opacity: 1, scale: 1, y: 0}} transition={{duration: 1.5}} className='text-5xl font-bold uppercase'>Education</motion.h1>
+                    <motion.h1 initial={{opacity: 0, scale: 0.5, y: -100}} whileInView={{ opacity: 1, scale: 1, y: 0}} viewport={{once: true}} transition={{duration: 1.5}} className='text-5xl font-bold uppercase'>Education</motion.h1>
                 </div>
 
                 {/* Skeleton Loader */}
