@@ -21,7 +21,7 @@ const Contact = () => {
             message: data.message
         }
         try {
-            const response = await fetch("https://danish-portfolio.up.railway.app/", {
+            const response = await fetch("https://danishwebdev-portfolio-backend.onrender.com/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
