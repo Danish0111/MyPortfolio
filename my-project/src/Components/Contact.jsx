@@ -4,15 +4,18 @@ import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import contact from '../assets/contact.png'
+import {Loader} from 'lucide-react';
 import { motion } from 'motion/react'
 
 const Contact = () => {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [submited, setSubmited] = useState(false);
+    const [isSending, setIsSending] = useState(false);
     const [alert, setAlert] = useState(false);
     const messageRef = useRef();
 
     const onSubmit = async (data) => {
+        setIsSending(true);
         console.log(data)
         const emailData = {
             name: data.name,
@@ -30,6 +33,7 @@ const Contact = () => {
             })
             let result = await response.json()
             if (result.success == true) {
+                setIsSending(false)
                 setSubmited(true)
                 reset();
             }
@@ -138,9 +142,13 @@ const Contact = () => {
                                     {/* Submit Button */}
                                     <button
                                         type="submit"
-                                        className="submit hidden md:block  bg-[var(--main-color)] text-black font-bold py-2 rounded-xl w-full"
+                                        className="submit hidden md:flex justify-center items-center  bg-[var(--main-color)] text-black font-bold py-2 rounded-xl w-full"
                                     >
-                                        Submit
+                                        {isSending ? (
+                                            <Loader className='size-5 animate-spin'/>
+                                        ) : (
+                                            "Submit"
+                                        )}
                                     </button>
                                 </div>
 
@@ -159,9 +167,13 @@ const Contact = () => {
                                     {/* Submit Button */}
                                     <button
                                         type="submit"
-                                        className="submit md:hidden bg-[var(--main-color)] text-black font-bold my-4 py-2 rounded-xl w-full"
+                                        className="submit flex justify-center items-center md:hidden bg-[var(--main-color)] text-black font-bold my-4 py-2 rounded-xl w-full"
                                     >
-                                        Submit
+                                        {isSending ? (
+                                            <Loader className='size-5 animate-spin'/>
+                                        ) : (
+                                            "Submit"
+                                        )}
                                     </button>
                                     <div className="flex gap-2 justify-start items-center md:py-4">
                                         <div className="contact_info flex flex-col gap-1 text-sm font-medium">
