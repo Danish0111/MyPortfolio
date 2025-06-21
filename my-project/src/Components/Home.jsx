@@ -44,7 +44,7 @@ const Home = () => {
               </NavLink>
             </motion.div>
             <motion.div initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="download_btn relative">
-              <a onMouseEnter={()=> setShowBadge(true)} onMouseLeave={()=> setShowBadge(false)} href="/DanishResume.pdf" download>
+              <a onMouseEnter={()=> setShowBadge(true)} onMouseLeave={()=> setShowBadge(false)} href="/resume.pdf" download>
                 <button>
                   <img className='w-8' src={download} alt="" />
                 </button>
