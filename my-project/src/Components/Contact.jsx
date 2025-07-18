@@ -24,7 +24,7 @@ const Contact = () => {
             message: data.message
         }
         try {
-            const response = await fetch("https://portfolio-backend-five-beta.vercel.app", {
+            const response = await fetch("https://portfolio-backend-five-beta.vercel.app/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
