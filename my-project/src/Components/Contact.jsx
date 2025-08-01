@@ -75,7 +75,7 @@ const Contact = () => {
                     <div className='line absolute w-full h-1 bg-[var(--main-color)] bottom-0'></div>
                 </div>
             )}
-            <div className='flex flex-col justify-center items-center max-w-6xl mx-auto mb-8 lg:my-10'>
+            <div className='flex flex-col justify-center items-center max-w-6xl mx-auto mb-8 lg:my-10 px-2 md:px-10 lg:px-24'>
                 <motion.h1 initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className='text-4xl md:text-5xl font-bold flex lg:block gap-2 uppercase my-4 md:my-8'><span>Contact</span> <span className='text-[var(--main-color)]'>me</span></motion.h1>
                 <motion.div initial={{ opacity: 0, y: 100, scale: 0.8 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} className="contact w-[90%] px-5 lg:px-0 bg-gray-800 rounded-xl  lg:gap-8">
 

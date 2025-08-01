@@ -8,7 +8,7 @@ import {motion} from 'motion/react'
 
 const Footer = () => {
     return (
-        <motion.footer initial={{y: 100}} whileInView={{y: 0}} transition={{duration: 1}} className='py-5 h-[100%] relative flex flex-col gap-5 md:gap-0 md:block px-5 md:px-0'>
+        <motion.footer initial={{y: 100}} whileInView={{y: 0}} transition={{duration: 1}} viewport={{ once: true }} className='py-5 h-[100%] relative flex flex-col gap-5 md:gap-0 md:block px-5 md:px-0'>
             <div className="social w-full md:w-[5%] h-10 flex flex-row md:flex-col gap-2 md:px-4">
                 <a target="_blank" href='https://www.linkedin.com/in/md-danish-63312b309/'><span className='p-4 w-10 h-10 border-2 flex justify-center items-center border-[var(--main-color)] rounded-full text-[var(--main-color)] hover:text-white hover:translate-y-[-5px] hover:scale-110 hover:bg-[var(--main-color)] transition-all'><FontAwesomeIcon color='' size='lg' icon={faLinkedin} /></span></a>
                 <a target="_blank" href='https://github.com/Danish0111'><span className='p-4 w-10 h-10 border-2 flex justify-center items-center border-[var(--main-color)] rounded-full text-[var(--main-color)] hover:text-white hover:translate-y-[-5px] hover:scale-110 hover:bg-[var(--main-color)] transition-all'><FontAwesomeIcon color='' size='lg' icon={faGithub} /></span></a>

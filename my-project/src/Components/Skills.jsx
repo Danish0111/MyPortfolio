@@ -36,7 +36,7 @@ const Skills = () => {
           {/* <div className="line w-[110px] h-[1px] bg-white"></div> */}
         </div>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-x-24 py-2 place-items-center px-2 md:px-10 lg:px-24'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-x-28 min-lg:gap-x-32 py-2 place-items-center'>
           {loading
             ? [...Array(skills.length || 10)].map((_, index) => (
               <div key={index} className="skillCard w-32 sm:w-36 flex flex-col justify-center items-center gap-2 h-40 bg-[#3b3b3bee] animate-pulse rounded-xl shadow-xl p-4">
@@ -45,7 +45,7 @@ const Skills = () => {
               </div>
             ))
             : skills.map(skill => (
-              <motion.div initial={{scale: 0.5, y: -100, opacity: 0}} whileHover={{scale: 1.14}} whileInView={{scale: 1, opacity: 1, y: 0}} transition={{duration: 1}} key={skill.id} className="skillCard w-32  flex flex-col justify-center items-center gap-2 bg-[#121213ee] rounded-xl shadow-xl p-4">
+              <motion.div initial={{scale: 0.5, y: -100, opacity: 0}} whileHover={{scale: 1.14}} whileInView={{scale: 1, opacity: 1, y: 0}} transition={{duration: 1}} key={skill.id} className="skillCard w-36  flex flex-col justify-center items-center gap-2 bg-[#121213ee] rounded-xl shadow-xl p-4">
                 <motion.img whileHover={{scale: 1.02}} src={skill.imageURL} alt="" />
                 <span className='font-bold'>{skill.name}</span>
               </motion.div>
