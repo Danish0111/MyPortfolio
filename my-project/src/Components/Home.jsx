@@ -16,8 +16,8 @@ import { NavLink } from 'react-router-dom';
 const Home = () => {
   const [showBadge, setShowBadge] = useState(false);
   return (
-    <div className='flex flex-col justify-center items-center mt-10'>
-      <div className="main flex flex-col lg:flex-row-reverse items-center lg:justify-center gap-10 lg:gap-20 p-10 max-w-6xl lg:mb-14">
+    <div className='flex flex-col justify-center items-center mt-10 px-2 md:px-10 lg:px-24'>
+      <div className="main flex flex-col lg:flex-row-reverse items-center lg:justify-center gap-10 lg:gap-20 py-10 max-w-6xl lg:mb-14">
         <motion.img initial={{ scale: 0.5, opacity: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.5 }} className='profile-img lg:mb-8 max-sm:w-72 w-96 rounded-full' src={profile} alt="" />
         <div className="right flex flex-col justify-center items-center lg:items-start lg:pr-4 max-md:px-0 max-lg:px-20">
           <motion.h1 initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} className='text-[40px] md:text-[50px] font-bold'>Hi, it's <span className='text-[var(--main-color)]'>Danish</span></motion.h1>

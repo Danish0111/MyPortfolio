@@ -30,13 +30,13 @@ const Skills = () => {
   }, []);
 
   return (
-      <div className="skills_container h-full mb-24 lg:mb-40 max-w-6xl flex flex-col justify-center items-center mx-auto px-14">
+      <div className="skills_container h-full mb-24 lg:mb-40 max-w-6xl flex flex-col justify-center items-center mx-auto px-2 md:px-10 lg:px-24">
         <div className="myskills flex flex-col justify-center items-center mt-10 my-8 sm:py-10 sm:mt-0">
           <motion.h1 initial={{opacity: 0, scale: 0.5, y: -100}} whileInView={{ opacity: 1, scale: 1, y: 0}} viewport={{once: true}} transition={{duration: 1}} className='text-5xl font-bold uppercase'>My Skills</motion.h1>
           {/* <div className="line w-[110px] h-[1px] bg-white"></div> */}
         </div>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-x-24 py-2 place-items-center'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-x-24 py-2 place-items-center px-2 md:px-10 lg:px-24'>
           {loading
             ? [...Array(skills.length || 10)].map((_, index) => (
               <div key={index} className="skillCard w-32 sm:w-36 flex flex-col justify-center items-center gap-2 h-40 bg-[#3b3b3bee] animate-pulse rounded-xl shadow-xl p-4">

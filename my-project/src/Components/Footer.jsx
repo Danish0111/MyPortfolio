@@ -17,18 +17,18 @@ const Footer = () => {
             {/* <div className="line w-full h-[2px] bg-[var(--main-color)]"></div> */}
             <div className="footer_navigation md:mb-5">
                 <nav className='w-[100%]'>
-                    <ul className='flex md:hidden flex-col md:flex-row justify-center items-start md:items-center gap-[20px] lg:gap-[50px] text-gray-400'>
+                    <ul className='flex min-md:hidden flex-col md:flex-row justify-center items-start md:items-center gap-[20px] lg:gap-[50px] text-gray-400'>
                         <li><NavLink to="/" className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>About</NavLink></li>
                         <li><NavLink to="/skills" className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Skills</NavLink></li>
                         <li><NavLink to="/projects" className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Projects</NavLink></li>
-                        <li><NavLink to="/education" className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Education</NavLink></li>
+                        {/* <li><NavLink to="/education" className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Education</NavLink></li> */}
                         <li><NavLink to="/contact" className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Contact</NavLink></li>
                     </ul>
-                    <ul className='hidden lg:flex flex-col md:flex-row justify-center items-start md:items-center gap-[20px] lg:gap-[50px] text-gray-400'>
+                    <ul className='hidden min-lg:flex flex-col md:flex-row justify-center items-start md:items-center gap-[20px] lg:gap-[50px] text-gray-400'>
                         <li><Link to="home" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>About</Link></li>
                         <li><Link to="skills" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Skills</Link></li>
                         <li><Link to="projects" smooth={true} duration={500} spy={true} offset={-50} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Projects</Link></li>
-                        <li><Link to="education" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Education</Link></li>
+                        {/* <li><Link to="education" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Education</Link></li> */}
                         <li><Link to="contact" smooth={true} duration={500} spy={true} offset={-50} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Contact</Link></li>
                     </ul>
                 </nav>
