@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import contact from '../assets/contact.png'
-import {Loader} from 'lucide-react';
+import { Loader } from 'lucide-react';
 import { motion } from 'motion/react'
 
 const Contact = () => {
@@ -54,7 +54,7 @@ const Contact = () => {
                 if (messageElement) {
                     messageElement.classList.add('shake-out');
                 }
-                setTimeout(()=> setSubmited(false), 300)
+                setTimeout(() => setSubmited(false), 300)
             }, 5000);
             return () => clearTimeout(timer);
         }
@@ -75,124 +75,120 @@ const Contact = () => {
                     <div className='line absolute w-full h-1 bg-[var(--main-color)] bottom-0'></div>
                 </div>
             )}
-            <div className='flex flex-col justify-center items-center h-[100%] mb-8 lg:my-10'>
-                <motion.h1 initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className='text-4xl md:text-5xl font-bold flex lg:block gap-2 uppercase my-4 md:my-8'><span>Contact</span> <span className='text-[var(--main-color)]'>me</span></motion.h1>
-                <motion.div initial={{ opacity: 0, y: 100, scale: 0.8 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1 }} className="contact w-[90%] px-5 lg:px-0 lg:w-[70%] bg-gray-800 rounded-xl  lg:gap-8">
+            <div className='flex flex-col justify-center items-center max-w-6xl mx-auto mb-8 lg:my-10'>
+                <motion.h1 initial={{ opacity: 0, y: -100 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className='text-4xl md:text-5xl font-bold flex lg:block gap-2 uppercase my-4 md:my-8'><span>Contact</span> <span className='text-[var(--main-color)]'>me</span></motion.h1>
+                <motion.div initial={{ opacity: 0, y: 100, scale: 0.8 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} className="contact w-[90%] px-5 lg:px-0 bg-gray-800 rounded-xl  lg:gap-8">
 
-                    <div className="form w-[100%] lg:w-[100%] lg:py-4 rounded-xl text-white font-semibold">
-                        <form onSubmit={handleSubmit(onSubmit)} className=''>
-                            <div className="flex flex-col md:flex-row justify-center gap-5 w-full px-0 py-5 lg:p-10">
-                                <div className="flex flex-col items-center gap-5 w-full">
-                                    {/* Name Field */}
-                                    <div className="flex w-full flex-col gap-2">
-                                        <div className="relative flex flex-col items-start">
+                    <form onSubmit={handleSubmit(onSubmit)} className='lg:py-4 rounded-xl text-white font-semibold'>
+                        <div className="flex flex-col md:flex-row justify-center gap-5 w-full px-0 py-5 lg:p-10">
+                            <div className="flex flex-col items-center gap-5 w-full">
+                                {/* Name Field */}
+                                <div className="flex w-full flex-col gap-2">
+                                    <div className="relative flex flex-col items-start">
 
-                                            <input
-                                                className="w-full bg-transparent p-4 rounded-xl border-2 outline-none transition-all focus:border-[var(--main-color)] text-sm font-light border-white"
-                                                placeholder="Your name"
-                                                type="text"
-                                                {...register("name", {
-                                                    required: "*Name is required",
-                                                    minLength: {
-                                                        value: 3,
-                                                        message: "*Name must be at least 3 characters"
-                                                    }
-                                                })}
-                                            />
-                                            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
-                                        </div>
-                                    </div>
-
-                                    {/* Email Field */}
-                                    <div className="flex flex-col gap-2 w-full">
-                                        {/* <label className="font-semibold text-medium" htmlFor="email">Email:</label> */}
-                                        <div className="relative flex flex-col items-start">
-
-                                            <input
-                                                className="w-full bg-transparent p-4 rounded-xl border-2 outline-none transition-all focus:border-[var(--main-color)] text-sm font-light border-white"
-                                                placeholder="Email Address"
-                                                type="email"
-                                                {...register("email", {
-                                                    required: "*Email is required",
-                                                })}
-                                            />
-                                            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
-                                        </div>
-                                    </div>
-
-                                    {/* Phone Field */}
-                                    <div className="flex flex-col gap-2 w-full">
-                                        {/* <label className="font-semibold text-medium" htmlFor="phone">Phone Number:</label> */}
-                                        <div className="relative flex flex-col items-start">
-
-                                            <input
-                                                className="w-full bg-transparent p-4 rounded-xl border-2 outline-none transition-all focus:border-[var(--main-color)] text-sm font-light border-white"
-                                                placeholder="Phone number"
-                                                type="number"
-                                                {...register("phone", {
-                                                    minLength: {
-                                                        value: 10,
-                                                        message: "*Phone no. must contain 10 digits."
-                                                    }
-                                                })}
-                                            />
-                                            {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
-                                        </div>
-                                    </div>
-                                    {/* Submit Button */}
-                                    <button
-                                        type="submit"
-                                        className="submit hidden md:flex justify-center items-center  bg-[var(--main-color)] text-black font-bold py-2 rounded-xl w-full"
-                                    >
-                                        {isSending ? (
-                                            <Loader className='size-5 animate-spin'/>
-                                        ) : (
-                                            "Submit"
-                                        )}
-                                    </button>
-                                </div>
-
-                                <div className="w-full">
-                                    {/* Message Field */}
-                                    <div className="flex flex-col gap-2 w-full">
-                                        <textarea
-                                            className="w-full h-[210px] bg-transparent p-2 outline-none transition-all focus:border-[var(--main-color)] text-sm font-light border-2 rounded-lg   border-white"
-                                            placeholder="Your message"
-                                            {...register("message", {
-                                                required: "*Message is required"
+                                        <input
+                                            className="w-full bg-transparent p-4 rounded-xl border-2 outline-none transition-all focus:border-[var(--main-color)] text-sm font-light border-white"
+                                            placeholder="Your name"
+                                            type="text"
+                                            {...register("name", {
+                                                required: "*Name is required",
+                                                minLength: {
+                                                    value: 3,
+                                                    message: "*Name must be at least 3 characters"
+                                                }
                                             })}
                                         />
-                                        {errors.message && <p className="text-red-500 text-xs mt-1 ">{errors.message.message}</p>}
-                                    </div>
-                                    {/* Submit Button */}
-                                    <button
-                                        type="submit"
-                                        className="submit flex justify-center items-center md:hidden bg-[var(--main-color)] text-black font-bold my-4 py-2 rounded-xl w-full"
-                                    >
-                                        {isSending ? (
-                                            <Loader className='size-5 animate-spin'/>
-                                        ) : (
-                                            "Submit"
-                                        )}
-                                    </button>
-                                    <div className="flex gap-2 justify-start items-center md:py-4">
-                                        <div className="contact_info flex flex-col gap-1 text-sm font-medium">
-                                            <div className="phone flex items-center gap-1">
-                                                <FontAwesomeIcon icon={faPhone} color='var(--main-color)' />
-                                                <span>+91 8527801978</span>
-                                            </div>
-                                            <div className="email flex items-center gap-2">
-                                                <FontAwesomeIcon icon={faEnvelope} color='var(--main-color)' />
-                                                <span>danish150106@gmail.com</span>
-                                            </div>
-                                        </div>
+                                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                                     </div>
                                 </div>
 
+                                {/* Email Field */}
+                                <div className="flex flex-col gap-2 w-full">
+                                    {/* <label className="font-semibold text-medium" htmlFor="email">Email:</label> */}
+                                    <div className="relative flex flex-col items-start">
 
+                                        <input
+                                            className="w-full bg-transparent p-4 rounded-xl border-2 outline-none transition-all focus:border-[var(--main-color)] text-sm font-light border-white"
+                                            placeholder="Email Address"
+                                            type="email"
+                                            {...register("email", {
+                                                required: "*Email is required",
+                                            })}
+                                        />
+                                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                                    </div>
+                                </div>
+
+                                {/* Phone Field */}
+                                <div className="flex flex-col gap-2 w-full">
+                                    {/* <label className="font-semibold text-medium" htmlFor="phone">Phone Number:</label> */}
+                                    <div className="relative flex flex-col items-start">
+
+                                        <input
+                                            className="w-full bg-transparent p-4 rounded-xl border-2 outline-none transition-all focus:border-[var(--main-color)] text-sm font-light border-white"
+                                            placeholder="Phone number"
+                                            type="number"
+                                            {...register("phone", {
+                                                minLength: {
+                                                    value: 10,
+                                                    message: "*Phone no. must contain 10 digits."
+                                                }
+                                            })}
+                                        />
+                                        {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                                    </div>
+                                </div>
+                                {/* Submit Button */}
+                                <button
+                                    type="submit"
+                                    className="submit hidden md:flex justify-center items-center  bg-[var(--main-color)] text-black font-bold py-2 rounded-xl w-full"
+                                >
+                                    {isSending ? (
+                                        <Loader className='size-5 animate-spin' />
+                                    ) : (
+                                        "Submit"
+                                    )}
+                                </button>
                             </div>
-                        </form>
-                    </div>
+
+                            <div className="w-full">
+                                {/* Message Field */}
+                                <div className="flex flex-col gap-2 w-full">
+                                    <textarea
+                                        className="w-full h-[210px] bg-transparent p-2 outline-none transition-all focus:border-[var(--main-color)] text-sm font-light border-2 rounded-lg   border-white"
+                                        placeholder="Your message"
+                                        {...register("message", {
+                                            required: "*Message is required"
+                                        })}
+                                    />
+                                    {errors.message && <p className="text-red-500 text-xs mt-1 ">{errors.message.message}</p>}
+                                </div>
+                                {/* Submit Button */}
+                                <button
+                                    type="submit"
+                                    className="submit flex justify-center items-center md:hidden bg-[var(--main-color)] text-black font-bold my-4 py-2 rounded-xl w-full"
+                                >
+                                    {isSending ? (
+                                        <Loader className='size-5 animate-spin' />
+                                    ) : (
+                                        "Submit"
+                                    )}
+                                </button>
+                                <div className="flex gap-2 justify-start items-center md:py-4">
+                                    <div className="contact_info flex flex-col gap-1 text-sm font-medium">
+                                        <div className="phone flex items-center gap-1">
+                                            <FontAwesomeIcon icon={faPhone} color='var(--main-color)' />
+                                            <span>+91 8527801978</span>
+                                        </div>
+                                        <div className="email flex items-center gap-2">
+                                            <FontAwesomeIcon icon={faEnvelope} color='var(--main-color)' />
+                                            <span>danish150106@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </motion.div>
             </div>
         </>

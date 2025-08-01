@@ -33,7 +33,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/education" element={<Education />} />
+            {/* <Route path="/education" element={<Education />} /> */}
             <Route path="/contact" element={<Contact />} />
           </Routes>
         ) : (
@@ -48,9 +48,9 @@ function App() {
             <section id="projects">
               <Projects />
             </section>
-            <section id="education">
+            {/* <section id="education">
               <Education />
-            </section>
+            </section> */}
             <section id="contact">
               <Contact />
             </section>
