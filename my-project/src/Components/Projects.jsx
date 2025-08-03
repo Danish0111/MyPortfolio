@@ -37,7 +37,7 @@ const Projects = () => {
   };
 
   return (
-      <div className="projects_container mb-20 lg:my-28 lg:mb-40 flex flex-col justify-center items-center max-w-6xl mx-auto">
+      <div className="projects_container mb-20 lg:my-28 lg:mb-40 flex flex-col justify-center items-center max-w-6xl mx-auto max-md:mt-20">
         <div className="myProjects flex flex-col justify-center items-center py-8 mb-10">
           <motion.h1 initial={{ opacity: 0, y: -50, scale: 0.5 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} className='text-5xl font-bold uppercase'>Projects</motion.h1>
         </div>

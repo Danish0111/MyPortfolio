@@ -30,7 +30,7 @@ const Skills = () => {
   }, []);
 
   return (
-      <div className="skills_container h-full mb-24 lg:mb-40 max-w-6xl flex flex-col justify-center items-center mx-auto px-2 md:px-10 lg:px-24">
+      <div className="skills_container h-full mb-24 lg:mb-40 max-w-6xl flex flex-col justify-center items-center mx-auto px-2 md:px-10 lg:px-24 max-md:mt-20">
         <div className="myskills flex flex-col justify-center items-center mt-10 my-8 sm:py-10 sm:mt-0">
           <motion.h1 initial={{opacity: 0, scale: 0.5, y: -100}} whileInView={{ opacity: 1, scale: 1, y: 0}} viewport={{once: true}} transition={{duration: 1}} className='text-5xl font-bold uppercase'>My Skills</motion.h1>
           {/* <div className="line w-[110px] h-[1px] bg-white"></div> */}
