@@ -18,16 +18,17 @@ const Navbar = () => {
     }, [location.pathname]);
 
     return (
-        <nav className='flex justify-between items-center px-2 md:px-10 lg:px-24 py-4 sticky top-0 bg-black z-50'>
-            <div className="logo text-3xl font-bold"><span>MD.</span> <span className='text-[var(--main-color)] last-name'>DANISH</span></div>
-            <ul className='hidden md:flex items-center gap-[20px] lg:gap-[50px]'>
-                <li><Link to="home" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>About</Link></li>
-                <li><Link to="skills" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Skills</Link></li>
-                <li><Link to="projects" smooth={true} duration={500} spy={true} offset={-50} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Projects</Link></li>
-                {/* <li><Link to="education" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Education</Link></li> */}
-                <li><Link to="contact" smooth={true} duration={500} spy={true} offset={-50} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Contact</Link></li>
-            </ul>
-
+        <>
+            <div className='flex justify-between items-center mx-2 md:mx-10 lg:mx-20 px-4 py-2 my-2 rounded-full fixed top-0 left-0 right-0 bg-gray-400/10 border border-gray-400/20 backdrop-blur z-10'>
+                <div className="logo text-3xl font-bold"><span>MD.</span> <span className='text-[var(--main-color)] last-name'>DANISH</span></div>
+                <ul className='hidden md:flex items-center gap-[20px] lg:gap-[50px]'>
+                    <li><Link to="home" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>About</Link></li>
+                    <li><Link to="skills" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Skills</Link></li>
+                    <li><Link to="projects" smooth={true} duration={500} spy={true} offset={-50} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Projects</Link></li>
+                    {/* <li><Link to="education" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Education</Link></li> */}
+                    <li><Link to="contact" smooth={true} duration={500} spy={true} offset={-50} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>Contact</Link></li>
+                </ul>
+            </div>
             <div className="md:hidden mobile_navigation">
                 <ul className='flex justify-around items-center gap-[10px] sm:gap-[20px] lg:gap-[50px] w-[100%]'>
                     <li>
@@ -63,7 +64,7 @@ const Navbar = () => {
                     <div className="indicator" style={{ left: `${indicatorPosition}px` }}></div>
                 </ul>
             </div>
-        </nav>
+        </>
     );
 };
 

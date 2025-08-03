@@ -17,21 +17,21 @@ import Particles from './Particles';
 const Home = () => {
   const [showBadge, setShowBadge] = useState(false);
   return (
-    <div className='flex flex-col justify-center items-center mt-10 px-2 md:px-10 lg:px-24 relative'>
-      <div style={{ width: '100%', height: '600px', position: 'absolute' }}>
+    <div className='flex flex-col justify-center items-center mt-20 px-2 md:px-10 lg:px-24 relative'>
+      <div style={{ width: '100%', height: '100vh', position: 'absolute' }}>
         <Particles
           particleColors={['#ffffff', '#ffffff']}
-          particleCount={200}
-          particleSpread={10}
+          particleCount={400}
+          particleSpread={15}
           speed={0.1}
-          particleBaseSize={100}
+          particleBaseSize={105}
           moveParticlesOnHover={true}
           alphaParticles={false}
           disableRotation={false}
         />
       </div>
       <div className="main flex flex-col lg:flex-row-reverse items-center lg:justify-center gap-10 lg:gap-20 py-10 max-w-6xl lg:mb-14">
-        <motion.img initial={{ scale: 0.5, opacity: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.5 }} className='profile-img lg:mb-8 max-sm:w-72 w-96 rounded-full z-40' src={profile} alt="" />
+        <motion.img initial={{ scale: 0.5, opacity: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.5 }} className='profile-img lg:mb-8 max-sm:w-72 w-96 rounded-full z-0' src={profile} alt="" />
         <div className="right flex flex-col justify-center items-center lg:items-start lg:pr-4 max-md:px-0 max-lg:px-20">
           <motion.h1 initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} className='text-[40px] md:text-[50px] font-bold'>Hi, it's <span className='text-[var(--main-color)]'>Danish</span></motion.h1>
           <motion.h2 initial={{ x: -150, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.4 }} className='text-[20px] md:text-[25px] font-bold'>I'm a <span className='text-[var(--main-color)]'></span></motion.h2>
