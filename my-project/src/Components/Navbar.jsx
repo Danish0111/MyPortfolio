@@ -18,7 +18,7 @@ const Navbar = () => {
     }, [location.pathname]);
 
     return (
-        <nav className='flex justify-between items-center px-2 md:px-10 lg:px-24 py-5 sticky top-0 bg-black z-10'>
+        <nav className='flex justify-between items-center px-2 md:px-10 lg:px-24 py-4 sticky top-0 bg-black z-50'>
             <div className="logo text-3xl font-bold"><span>MD.</span> <span className='text-[var(--main-color)] last-name'>DANISH</span></div>
             <ul className='hidden md:flex items-center gap-[20px] lg:gap-[50px]'>
                 <li><Link to="home" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>About</Link></li>

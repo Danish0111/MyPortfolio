@@ -8,6 +8,7 @@ import Education from './Components/Education';
 import Contact from './Components/Contact';
 import { useEffect, useState } from 'react';
 import Footer from './Components/Footer';
+import Particles from './Components/Particles';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -56,7 +57,7 @@ function App() {
             </section>
           </>
         )}
-        <Footer/>
+        <Footer />
       </div>
     </>
   );
