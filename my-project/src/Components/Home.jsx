@@ -36,13 +36,13 @@ const Home = () => {
           <motion.h1 initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} className='text-[40px] md:text-[50px] font-bold'>Hi, it's <span className='text-[var(--main-color)]'>Danish</span></motion.h1>
           <motion.h2 initial={{ x: -150, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.4 }} className='text-[20px] md:text-[25px] font-bold'>I'm a <span className='text-[var(--main-color)]'></span></motion.h2>
           <motion.p initial={{ x: -200, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className='text-center lg:text-justify '>Welcome to my portfolio! I'm a web developer passionate about creating dynamic, responsive, and user-friendly web applications. With expertise in React, JavaScript, and modern web technologies, I build seamless digital experiences. Explore my projects, skills, and services, and feel free to connect with me for collaboration or inquiries! 🚀</motion.p>
-          <div className="social w-full flex justify-center lg:justify-start gap-6 pt-4 mb-5">
+          <div className="social w-full flex justify-center lg:justify-start gap-6 pt-4 mb-5 z-10">
             <motion.a initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} target="_blank" href='https://www.linkedin.com/in/md-danish-63312b309/'><span className='p-4 w-10 h-10 border-2 flex justify-center items-center border-[var(--main-color)] rounded-full text-[var(--main-color)] hover:text-white hover:translate-y-[-5px] hover:scale-110 hover:bg-[var(--main-color)] transition-all'><FontAwesomeIcon color='' size='lg' icon={faLinkedin} /></span></motion.a>
             <motion.a initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} target="_blank" href='https://github.com/Danish0111'><span className='p-4 w-10 h-10 border-2 flex justify-center items-center border-[var(--main-color)] rounded-full text-[var(--main-color)] hover:text-white hover:translate-y-[-5px] hover:scale-110 hover:bg-[var(--main-color)] transition-all'><FontAwesomeIcon color='' size='lg' icon={faGithub} /></span></motion.a>
             <motion.a initial={{ y: 150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.4 }} target="_blank" href='https://x.com/MdDanish1664492'><span className='p-4 w-10 h-10 border-2 flex justify-center items-center border-[var(--main-color)] rounded-full text-[var(--main-color)] hover:text-white hover:translate-y-[-5px] hover:scale-110 hover:bg-[var(--main-color)] transition-all'><FontAwesomeIcon color='' size='lg' icon={faTwitter} /></span></motion.a>
           </div>
           <div className='flex items-center gap-8'>
-            <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="hire_btn">
+            <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="hire_btn z-10">
               <Link to="contact" smooth={true} duration={500} spy={true} offset={-30} className='hire_link hidden md:block w-full hover:cursor-pointer bg-[var(--main-color)] text-black px-5 py-2 rounded-full transition-all'>
                 <button className='font-semibold '>
                   Hire Me
@@ -55,7 +55,7 @@ const Home = () => {
               </NavLink>
             </motion.div>
             <motion.div initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="download_btn relative">
-              <a onMouseEnter={() => setShowBadge(true)} onMouseLeave={() => setShowBadge(false)} href="/resume.pdf" download>
+              <a onMouseEnter={() => setShowBadge(true)} onMouseLeave={() => setShowBadge(false)} href="/Danish resume.pdf" download>
                 <button>
                   <img className='w-8' src={download} alt="" />
                 </button>

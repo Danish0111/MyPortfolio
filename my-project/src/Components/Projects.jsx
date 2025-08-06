@@ -49,7 +49,7 @@ const Projects = () => {
               </div>
             ))
             : projects.map((project, index) => (
-              <motion.div initial={{ opacity: 0, y: index * 50 + 100 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} key={project.id} id={`project-${index}`} className="project border-white rounded-lg w-80 min-h-[390px] relative">
+              <div id={`project-${index}`} className="project border-white rounded-lg w-80 min-h-[390px] relative hover:-translate-y-1 transition-all">
                 <img className='mb-2' src={project.imageURL} alt="project" />
                 <div className="project-title font-bold uppercase text-center text-black  pointer-events-none mb-1">{project.title}</div>
                 <div className="description text-center text-sm pointer-events-none font-semibold">{project.description}</div>
@@ -57,7 +57,7 @@ const Projects = () => {
                     <motion.a whileTap={{ scale: 0.9 }} className="bg-black absolute bottom-0 left-0 m-4 text-white font-bold p-2 rounded-lg hover:cursor-pointer hover:bg-white border-2 border-black hover:border-white hover:text-black" target="_blank" href={project.code}>Source Code</motion.a>
                     <motion.a whileTap={{ scale: 0.9 }} className="border-2 absolute bottom-0 right-0 m-4 border-black text-center p-2 rounded-lg font-bold hover:cursor-pointer hover:border-white hover:bg-white hover:text-black" target="_blank" href={project.demo}>Demo</motion.a>
                 </div>
-              </motion.div>
+              </div>
             ))}
         </div>
       </div>
