@@ -19,7 +19,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='flex justify-between items-center mx-2 md:mx-10 lg:mx-20 px-4 py-2 my-2 rounded-full fixed top-0 left-0 right-0 bg-gray-400/10 border border-gray-400/20 backdrop-blur z-10'>
+            <div className='flex justify-between items-center mx-2 md:mx-10 lg:mx-20 px-4 py-2 my-2 rounded-full fixed top-0 left-0 right-0 bg-gray-400/10 border border-gray-400/20 backdrop-blur z-20'>
                 <div className="logo text-3xl font-bold"><span>MD.</span> <span className='text-[var(--main-color)] last-name'>DANISH</span></div>
                 <ul className='hidden md:flex items-center gap-[20px] lg:gap-[50px]'>
                     <li><Link to="home" smooth={true} duration={500} spy={true} offset={-100} className='hover:cursor-pointer link font-semibold hover:text-[var(--main-color)]'>About</Link></li>
