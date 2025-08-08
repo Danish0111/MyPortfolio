@@ -53,6 +53,11 @@ nav li .link{
   transition: all 0.3s ease-in-out;
 }
 
+.link{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
 .link::before{
   content: '';
   position: absolute;
@@ -61,7 +66,7 @@ nav li .link{
   background-color: var(--main-color);
   bottom: 0;
   /* opacity: 0; */
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .link:hover::before{
